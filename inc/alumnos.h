@@ -28,7 +28,9 @@ extern "C" {
 /*=====[Public function-like macros]=========================================*/
 
 /*=====[Definitions of public data types]====================================*/
-
+/**
+ * @brief  Estructura que contiene el apellido, los nombres y el documento del alumno
+ */
 typedef struct alumno_s {
     char apellidos[30];
     char nombres[30];

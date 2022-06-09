@@ -52,6 +52,15 @@ const int CANTIDAD_ALUMNOS = (sizeof(ALUMNOS) / sizeof(alumno_t));
 
 /*=====[Implementations of interrupt functions]==============================*/
 
+/**
+ * @brief  Genera una cadena con los datos de un alumno
+ *
+ * @param  cadena: direccion donde se almacena la cadena generada
+ * @param  espacio: cantidad de bytes disponibles en la cadena
+ * @param  alumno: datos del alumno en formato alumno_t
+ * @retval true: se puedo guardar correctamente los datos
+ * @retval false: error
+ */
 bool SerializarAlumno(char * cadena, size_t espacio, const alumno_t alumno) {
     int resultado;
     const char FORMATO[] = "{"
@@ -66,6 +75,14 @@ bool SerializarAlumno(char * cadena, size_t espacio, const alumno_t alumno) {
     return (resultado >= 0);
 }
 
+/**
+ * @brief  Genera una cadena con los datos de todos loas alumnos
+ *
+ * @param  cadena: direccion donde se almacena la cadena generada
+ * @param  espacio: cantidad de bytes disponibles en la cadena
+ * @retval true: se puedo guardar correctamente los datos
+ * @retval false: error
+ */
 bool SerializarAlumnos(char * cadena, size_t espacio) {
     static const int  cantidad = sizeof(ALUMNOS) / sizeof(alumno_t);
     int posicion = snprintf(cadena, espacio, "[\r\n  ");
